@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Success!
+{% endblock %}
+
+{% block body %}
+    <div class="mymessage"><h1> Welcome to Librarian!<br>Your account has been created</h1></div>
+    <br>
+    <img class="myimg2" src="{{ url_for('static', filename = 'img/success-icon-10.png') }}">
+{% endblock %}

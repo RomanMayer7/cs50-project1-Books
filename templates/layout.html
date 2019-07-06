@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<style>
+        .roww{
+            display:flex;
+            flex-direction:row;
+        }
+        .column{
+            display:flex;
+            flex-direction:column;
+        }
+        .left{
+            width:35%;
+            margin:5%;
+        }
+        .half{
+            width:45%;
+            margin:5%;
+        }
+        .myimg{
+            width:90%;
+            margin-top:5%;
+        }
+        .mymessage{
+            margin-top:5%;
+            margin-left:37%;
+        }
+        .mymessage2{
+            margin-top:5%;
+            margin-left:30%;
+        }
+        .myimg2{
+            width:20%;
+            margin-top:5%;
+            margin-left:40%;}
+         .myimg3{
+            width:60%;
+            margin-top:-5%;
+            margin-left:18%;}
+        .element{
+            width:40%;
+            margin-top:1%;
+            margin-left:30%;
+            margin-right:10%;
+        }
+        .element2{
+            width:60%;
+            margin-top:1%;
+            margin-left:20%;
+            margin-right:10%;
+        }
+        body{
+            width: 100%;
+            height:auto;
+            background-color: rgb(157, 211, 181);
+            display: flex;
+
+        }
+
+        .navbar-brand {
+  padding: 0px;
+}
+        .navbar-brand>img {
+          height: 100%;
+          background-color:transparent !important;  
+                 background-image:none;
+                 box-shadow:none;  
+           
+ 
+            }
+            .navbar{
+                display:flex;
+                width: 100%;
+                height:15%;
+       
+             
+            }
+       
+       </style>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    </head>
+
+    <body class="column">
+            <nav class="navbar navbar-expand-sm bg-light navbar-light border border-primary">
+                    <div class="container-fluid">
+                    <a class="navbar-brand" >
+                            <img src="{{ url_for('static', filename = 'img/librarian-logo2.png') }}"  width="110" >
+                            Librarian
+                          </a>
+                    <ul class="navbar-nav">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('search') }}" method="post">Search</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                      </li>
+                    </ul>
+                    </div>
+                  </nav>
+                  {% block body %}
+                  {% endblock %}
+               <!-- Footer -->
+<footer class="page-footer font-small blue" style="margin-top:5%">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">  "Project 1"/"CS50:Web Programming with Python and JavaScript"
+
+
+          <a href="https://mdbootstrap.com/education/bootstrap/">2019 @ Roman Mayerson</a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+          
+    
+    </body>
+</html>

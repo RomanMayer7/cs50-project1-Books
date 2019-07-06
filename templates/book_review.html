@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Librarian:Reviews
+{% endblock %}
+
+{% block body %}
+<main class="roww" style="background-color:rgb(196, 220, 223)">
+ <div class="half" >
+<div style="color: blue"><h1>"{{ book.title }}"</h1><br></div>
+________________________________________________________________
+<h6> <div class="roww">By <div style="color:rgb(133, 7, 150)">: {{ book.author }}</div></div><br>
+ <div class="roww">Publication Year:<div style="color:rgb(133, 7, 150)"> {{ book.year }}</div></div></h6>
+<div style="color:blue"><h6>ISBN:{{ book.isbn }}</h6></div>
+ ---------------------------------------------------------------
+ <div style="color:rgb(240, 100, 0)">
+<h6>Review Count:{{ rcount }}</h6>
+<h6>Average Rating:{{ rating }}</h6>
+According to Goodreads,obtained through Goodreads API</div>
+________________________________________________________________
+<br><br>
+<div style="color:chocolate"><h1>Reviews</h1></div>
+
+{% for review in reviews %}
+<h6>-------------------------------------------------------<br>
+<div style="color:darkblue">{{ review.user_name }}</div> rated this book {{ review.rating }} out of 5</h6>
+<p><h5>{{ review.content }}<h5></p>
+<br>
+{% else %}
+  <h4>There no reviews yet.</h4>
+{% endfor %}
+</div>
+
+</div>
+<div class="half">
+        <form action="{{ url_for('review_submit',this_book_id=book.id) }}" method="post">
+
+            <div class="form-group">Your Rating:
+            <input type="radio" name="rating" value="1"> 1
+            <input type="radio" name="rating" value="2"> 2
+            <input type="radio" name="rating" value="3"> 3
+            <input type="radio" name="rating" value="4"> 4
+            <input type="radio" name="rating" value="5" checked> 5</div>
+            
+            <div class="form-group">
+            <textarea  rows="10" cols="70" name="comment">
+            Enter your  review here...</textarea></div>
+            
+            <div class="form-group">
+                    <button class="btn btn-primary">Submit</button>
+            </div>
+            </form>
+             
+</div>
+</main>
+{% endblock %}
